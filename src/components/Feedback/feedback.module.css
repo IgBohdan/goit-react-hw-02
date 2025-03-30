@@ -1,0 +1,8 @@
+.block {
+  display: flex;
+  margin-left: 10px;
+  gap: .5em;
+}
+.block Button{
+padding: .5em;
+}
