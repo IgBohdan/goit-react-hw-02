@@ -1,14 +1,21 @@
-import React from "react";
 import style from "./feedback.module.css";
-export default function Feedback({ totalFeedback, updateFeedback }) {
+
+export default function Feedback({
+  feedback,
+  totalFeedback,
+  positiveFeedback,
+}) {
   return (
-    <div className={style.block}>
-      <button onClick={() => updateFeedback("good")}>Good</button>
-      <button onClick={() => updateFeedback("neutral")}>Neutral</button>
-      <button onClick={() => updateFeedback("bad")}>Bad</button>
-      {totalFeedback > 0 && (
-        <button onClick={() => updateFeedback("reset")}>Reset</button>
-      )}
+    <div>
+      <div className={style.block}>
+        <p>Good: {feedback.good}</p>
+        <p>Neutral: {feedback.neutral}</p>
+        <p>Bad: {feedback.bad}</p>
+      </div>
+      <div className={style.block}>
+        <p>Total: {totalFeedback}</p>
+        <p>Positive feedback: {positiveFeedback}%</p>
+      </div>
     </div>
   );
 }

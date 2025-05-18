@@ -1,17 +1,14 @@
-import React from "react";
 import style from "./options.module.css";
-export default function Options({ totalFeedback, feedback }) {
-  if (totalFeedback === 0) return <p>No feedback yet</p>;
 
-  const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
-
+export default function Options({ updateFeedback, totalFeedback }) {
   return (
     <div className={style.block}>
-      <p>Good: {feedback.good}</p>
-      <p>Neutral: {feedback.neutral}</p>
-      <p>Bad: {feedback.bad}</p>
-      <p>Total: {totalFeedback}</p>
-      <p>Positive feedback: {positiveFeedback}%</p>
+      <button onClick={() => updateFeedback("good")}>Good</button>
+      <button onClick={() => updateFeedback("neutral")}>Neutral</button>
+      <button onClick={() => updateFeedback("bad")}>Bad</button>
+      {totalFeedback > 0 && (
+        <button onClick={() => updateFeedback("reset")}>Reset</button>
+      )}
     </div>
   );
 }
